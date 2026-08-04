@@ -1,0 +1,16 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+.env
+
+# uv
+# uv.lock
+
+# Node
+node_modules/
+
+
+# OS / 에디터
+.DS_Store
+.vscode/
