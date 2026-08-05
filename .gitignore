@@ -3,7 +3,7 @@
 __pycache__/
 *.pyc
 .env
-
+models/
 # uv
 # uv.lock
 
