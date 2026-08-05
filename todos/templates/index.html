@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo App</title>
+    <link rel="stylesheet" href="/static/css/main.css">
+</head>
+<body>
+{% extends 'base.html' %}
+{% block content %}
+    <form action="/add" method="post">
+        <!-- <textarea name="task" rows="5" placeholder="Enter your task" id="task" required></textarea> -->
+        <textarea name="task" rows="5" placeholder="Enter your task" id="task"></textarea>
+        <button type="submit" id="add_task">
+          Add
+        </button>
+    </form>
+
+    <br>
+    <h2>Tasks</h2>
+
+    <div>
+      {% if todos == 0 %}
+        <br>
+        <p> 입력한 TODO 메모가 없습니다. </p>
+      {% else %}
+        {% for todo in todos %}
+        <div class="task">
+            {% if todo.completed %}
+                <strike>{{ todo.task }}</strike>
+            {% else %}
+                {{ todo.task }}
+            {% endif %}
+                <div class="task-actions">
+                    <a href="/edit/{{ todo.id }}" class="todo-btn">Edit</a>
+                    <form action="/delete/{{ todo.id }}" method="post">
+                        <button type="submit" class="todo-btn">Delete</button>
+                    </form>
+                </div>
+        </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+    
+    <script src="/static/js/main.js"></script>
+{% endblock content %}
+</body>
+</html>

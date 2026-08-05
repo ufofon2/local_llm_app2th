@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<form action="/delete/{{todo.id}}" method="post">
+      
+        <button type="submit">Delete</button>
+</form>
+    <h2>정말 삭제하시겠습니까?</h2>
+
+    <div class="task">
+        {% if todo.completed %}
+            <strike>{{ todo.task }}</strike>
+        {% else %}
+            {{ todo.task }}
+        {% endif %}
+    </div>
+
+{% endblock content %}
