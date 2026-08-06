@@ -2,6 +2,7 @@ from fastapi import FastAPI, HTTPException
 import uvicorn
 from ollama_chat import call_ollama_chat, get_ollama_models
 from schema import ChatRequest, ChatResponse
+from fastapi.middleware.cors import CORSMiddleware
 
 
 # FastAPI 객체 생성
@@ -54,6 +55,15 @@ def list_models():
             status_code=500,
             detail=f"모델 목록 조회 중 오류가 발생했습니다: {exc}"
         )
+
+app.add_middleware( 
+    CORSMiddleware, 
+    allow_origins=["*"], 
+    allow_credentials=True, 
+    allow_methods=["*"], 
+    allow_headers=["*"], 
+) 
+
 
 if __name__ == "__main__":
     uvicorn.run(
