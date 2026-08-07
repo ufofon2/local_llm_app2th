@@ -1,0 +1,56 @@
+/*
+  ChatHeader.jsx의 스타일입니다.
+  튀는 그라데이션 대신 차분한 화이트 카드 + 절제된 액센트로 중후한 톤을 유지합니다.
+*/
+.chat-header {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xs);
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-header-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.chat-header-title::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--accent);
+}
+
+.chat-header-subtitle {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.chat-header-reset {
+  background: transparent;
+  border: 1px solid var(--border-mid);
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background-color var(--transition), color var(--transition), border-color var(--transition);
+}
+
+.chat-header-reset:hover {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}

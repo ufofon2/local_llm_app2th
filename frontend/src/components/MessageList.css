@@ -1,0 +1,12 @@
+/*
+  MessageList.jsx의 스타일입니다.
+  flex: 1과 overflow-y: auto를 통해 스크롤 영역을 만듭니다.
+*/
+.message-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px;
+  overflow-y: auto;
+  flex: 1;
+}

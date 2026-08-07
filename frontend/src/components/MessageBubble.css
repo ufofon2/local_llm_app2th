@@ -1,0 +1,138 @@
+/*
+  MessageBubble.jsx의 스타일입니다.
+  사용자/AI/로딩 버블, Markdown 컨텐츠, 코드 블록 스타일을 정의합니다.
+*/
+.bubble {
+  max-width: 75%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  animation: pop-in 0.3s var(--transition) forwards;
+  transform-origin: bottom;
+  opacity: 0;
+  transform: scale(0.96) translateY(10px);
+}
+
+@keyframes pop-in {
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.bubble-user {
+  align-self: flex-end;
+  background-color: var(--bubble-user);
+  color: white;
+  border-radius: var(--radius-lg) var(--radius-lg) 4px var(--radius-lg);
+}
+
+.bubble-assistant {
+  align-self: flex-start;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg) var(--radius-lg) var(--radius-lg) 4px;
+}
+
+.bubble-loading {
+  padding: 12px 16px;
+}
+
+.bubble-content {
+  padding: 12px 18px;
+  font-size: 15px;
+  line-height: 1.6;
+  word-break: break-word;
+}
+
+/* Markdown Elements */
+.bubble-content > :first-child { margin-top: 0; }
+.bubble-content > :last-child { margin-bottom: 0; }
+.bubble-content p { margin: 0 0 1em; }
+.bubble-content h1, .bubble-content h2, .bubble-content h3 { margin: 1.2em 0 0.8em; font-weight: 600; }
+.bubble-content ul, .bubble-content ol { padding-left: 24px; margin: 1em 0; }
+.bubble-content li { margin-bottom: 0.4em; }
+.bubble-content blockquote { border-left: 3px solid var(--accent); margin: 1.5em 0; padding: 0.5em 1em; color: var(--text-secondary); }
+.bubble-content code:not(pre > code) { background-color: var(--bubble-ai); padding: 0.2em 0.4em; border-radius: 4px; font-size: 85%; }
+.bubble-user .bubble-content code:not(pre > code) { background-color: rgba(255,255,255,0.2); }
+.bubble-content table { border-collapse: collapse; margin: 1.5em 0; width: 100%; }
+.bubble-content th, .bubble-content td { border: 1px solid var(--border-mid); padding: 8px 12px; }
+.bubble-content th { background-color: var(--bubble-ai); }
+
+/* Code Block */
+.code-block {
+  background-color: #1e1e1e;
+  color: #d4d4d4;
+  border-radius: var(--radius-md);
+  margin: 1.5em 0;
+  overflow: hidden;
+}
+.code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 8px 12px;
+  font-size: 12px;
+  color: #ccc;
+}
+.code-block pre {
+  margin: 0;
+  padding: 16px;
+  overflow-x: auto;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Meta (Elapsed Time & Copy Button) */
+.bubble-meta {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 8px 12px;
+  border-top: 1px solid var(--border);
+  margin-top: 8px;
+}
+.elapsed-time {
+  font-size: 12px;
+  color: var(--text-tertiary);
+}
+
+/* Copy Button */
+.copy-button {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background-color: transparent;
+  border: none;
+  color: var(--text-secondary);
+  padding: 4px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color var(--transition), color var(--transition);
+}
+.copy-button:hover {
+  background-color: rgba(0,0,0,0.05);
+}
+.code-header .copy-button {
+  color: #ccc;
+}
+.code-header .copy-button:hover {
+  background-color: rgba(255,255,255,0.1);
+}
+.copy-button.copied {
+  color: #4caf50; /* Green */
+}
+.copy-button svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Loading Bubble */
+.bubble-loading svg {
+  width: 40px;
+  height: 20px;
+  fill: var(--text-tertiary);
+}

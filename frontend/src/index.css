@@ -1,0 +1,64 @@
+/*
+  전역 스타일과 CSS 디자인 토큰을 정의합니다.
+  Apple 디자인 시스템을 기반으로 하고, 사이드바는 밝은 옐로,
+  포인트 액센트는 그린을 사용합니다.
+*/
+
+:root {
+  /* Font */
+  --font: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+
+  /* Colors */
+  --bg: #f2f2f4; /* 중립 라이트 그레이 배경 */
+  --surface: #ffffff;
+
+  /* 사이드바: 밝은 옐로 */
+  --sidebar-bg: #fde047;
+  --sidebar-surface: rgba(255, 255, 255, 0.65);
+  --sidebar-border: rgba(0, 0, 0, 0.12);
+  --sidebar-text: #1c1c1e;
+  --sidebar-text-muted: #57534e;
+
+  --text-primary: #1d1d1f;
+  --text-secondary: #6e6e73;
+  --text-tertiary: #aeaeb2;
+
+  --accent: #16a34a; /* 밝은 그린 */
+  --accent-rgb: 22, 163, 74;
+  --bubble-user: var(--accent);
+  --bubble-ai: #f0f0f2; /* 라벤더 대신 중립 그레이 */
+
+  --border: rgba(0, 0, 0, 0.08);
+  --border-mid: rgba(0, 0, 0, 0.12);
+
+  /* Shadows */
+  --shadow-xs: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 22px;
+
+  /* Others */
+  --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg);
+  color: var(--text-primary);
+}
+
+/* 스크롤바 스타일 */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}

@@ -1,0 +1,66 @@
+/*
+  SettingsPanel.jsx의 스타일입니다.
+  차콜 그레이 사이드바 + 절제된 보라색 액센트로 좀 더 중후한 톤을 만듭니다.
+*/
+.settings-panel {
+  padding: 24px;
+  background-color: var(--sidebar-bg);
+  border-right: 1px solid var(--sidebar-border);
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.settings-panel-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--sidebar-text);
+  margin: 0 0 24px;
+}
+
+.settings-field {
+  margin-bottom: 24px;
+}
+
+.settings-field label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--sidebar-text-muted);
+  margin-bottom: 8px;
+}
+
+.settings-field select,
+.settings-field textarea,
+.settings-field input[type='number'] {
+  width: 100%;
+  background-color: var(--sidebar-surface);
+  border: 1px solid var(--sidebar-border);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  font-size: 14px;
+  color: var(--sidebar-text);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.settings-field select option {
+  color: #1d1d1f;
+}
+
+.settings-field select:focus,
+.settings-field textarea:focus,
+.settings-field input[type='number']:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.35);
+}
+
+.settings-field textarea {
+  resize: vertical;
+  min-height: 80px;
+  line-height: 1.5;
+}
+
+.settings-field input[type='range'] {
+  width: 100%;
+  accent-color: var(--accent);
+}

@@ -1,0 +1,57 @@
+/* 
+  ChatWindow.jsx의 전체 레이아웃을 담당하는 스타일입니다.
+  Apple 디자인 시스템과 보라색 테마를 기반으로 합니다.
+*/
+
+.app-layout {
+  display: grid;
+  grid-template-columns: 320px 1fr; /* 사이드바 너비 조정 */
+  height: 100vh;
+  background-color: var(--bg);
+  font-family: var(--font);
+}
+
+.main-column {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden; /* 내부 스크롤은 chat-panel에서 처리 */
+}
+
+.main-column-inner {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 16px 24px 0; /* 하단 패딩은 ChatInput에서 처리 */
+  gap: 16px;
+}
+
+.chat-panel {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow: hidden; /* MessageList가 스크롤되도록 함 */
+  background-color: var(--surface);
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  box-shadow: var(--shadow-sm);
+  border-top: 1px solid var(--border);
+}
+
+.chat-panel-subtitle {
+  margin: 20px 24px 0;
+  padding: 14px 18px;
+  background-color: rgba(139, 92, 246, 0.1); /* 희미한 보라색 */
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.error-banner {
+  background-color: #ffebee; /* 연한 빨강 배경 */
+  color: #c62828; /* 어두운 빨강 텍스트 */
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
